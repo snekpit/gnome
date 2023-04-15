@@ -1,0 +1,27 @@
+#
+# SPDX-FileCopyrightText: © 2020-2023 Serpent OS Developers
+#
+# SPDX-License-Identifier: Zlib
+#
+name        : libcloudproviders
+version     : 0.3.1
+release     : 1
+homepage    : https://gitlab.gnome.org/World/libcloudproviders
+upstreams   :
+    - https://download.gnome.org/sources/libcloudproviders/0.3/libcloudproviders-0.3.1.tar.xz : 4763213ca1e1fe30d422f5ae3b4f02a454f63414c1860ad142d6385f89d05929
+summary     : libcloudproviders is a DBus API that allows cloud storage sync clients to expose their services.
+description : |
+    libcloudproviders is a DBus API that allows cloud storage sync clients to expose their services. Clients such as file managers and desktop environments can then provide integrated access to the cloud providers services.
+license     :
+    - LGPL-3.0-or-later
+builddeps   :
+    - pkgconfig(gio-2.0)
+    - pkgconfig(gio-unix-2.0)
+    - pkgconfig(glib-2.0)
+    - pkgconfig(gobject-introspection-1.0)
+setup       : |
+    %meson -Dvapigen=false
+build       : |
+    %meson_build
+install     : |
+    %meson_install
